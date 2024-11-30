@@ -29,3 +29,16 @@ class UserAPIClient(HTTPClient):
         params = {"offset": offset, "limit": limit}
         response = self.get("users", headers=headers, params=params)
         return response.json()
+
+    def get_user(self, user_uuid: str, task_id: str) -> dict[str, Any]:
+        """Getting user details by UUID."""
+        headers = {"X-Task-Id": task_id}
+        endpoint = f"users/{user_uuid}"
+        response = self.get(endpoint, headers=headers)
+
+        # Явная проверка статуса
+        if not response.ok:
+            msg = f"Request failed with status {response.status}"
+            raise ValueError(msg)
+
+        return response.json()
