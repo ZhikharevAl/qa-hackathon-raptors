@@ -33,7 +33,7 @@ jobs:
 
       - name: Set environment for Release
         run: |
-          echo "BASE_URL=https://dev.qa-playground.com/api/v1/" >> $GITHUB_ENV
+          echo "BASE_URL=https://dev-gs.qa-playground.com/api/v1/" >> $GITHUB_ENV
 
       - name: Set API Token for Release
         run: echo "API_TOKEN=${{ secrets.API_TOKEN }}" >> $GITHUB_ENV
