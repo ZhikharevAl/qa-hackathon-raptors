@@ -1,0 +1,7 @@
+ERROR    root:conftest.py:66 The user could not be deleted 926e2313-ae56-400f-bd5e-a908def49a47: Request failed with status 404
+Traceback (most recent call last):
+  File "/home/runner/work/qa-hackathon-raptors/qa-hackathon-raptors/conftest.py", line 63, in new_user
+    user_api_client.delete_user(str(user["uuid"]), task_id)
+  File "/home/runner/work/qa-hackathon-raptors/qa-hackathon-raptors/services/users/user_api_client.py", line 69, in delete_user
+    raise ValueError(msg)
+ValueError: Request failed with status 404
