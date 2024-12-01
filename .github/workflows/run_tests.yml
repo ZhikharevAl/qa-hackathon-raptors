@@ -29,17 +29,18 @@ jobs:
       - name: Ensure browsers are installed
         run: uv pip install --system playwright && python -m playwright install --with-deps
 
-      - name: Set API Token
-        run: echo "API_TOKEN=${{ secrets.API_TOKEN }}" >> $GITHUB_ENV
-
       - name: Set environment for Release
         run: |
           echo "BASE_URL=https://release-gs.qa-playground.com/api/v1/" >> $GITHUB_ENV
 
+      - name: Set API Token for Release
+        run: echo "API_TOKEN=${{ secrets.API_TOKEN_RELEASE }}" >> $GITHUB_ENV  # API_TOKEN for Release
+
       - name: Run tests for Release
         run: |
           mkdir -p test-results/release
-          pytest --alluredir=allure-results/release || true  # Added '|| true' to prevent failing
+          pytest --alluredir=allure-results/release
+        continue-on-error: true  # Ensures job continues even if tests fail
 
       - name: Upload Playwright traces for Release
         if: always()
@@ -50,7 +51,6 @@ jobs:
           retention-days: 20
 
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: allure-results-release
           path: allure-results/release
@@ -60,7 +60,6 @@ jobs:
     name: Run tests on Dev environment
     runs-on: ubuntu-latest
     needs: test-release
-    if: always()  # Ensures the job runs even if 'test-release' fails
     steps:
       - uses: actions/checkout@v4
 
@@ -83,17 +82,18 @@ jobs:
       - name: Ensure browsers are installed
         run: uv pip install --system playwright && python -m playwright install --with-deps
 
-      - name: Set API Token
-        run: echo "API_TOKEN=${{ secrets.API_TOKEN }}" >> $GITHUB_ENV
-
       - name: Set environment for Dev
         run: |
           echo "BASE_URL=https://dev-gs.qa-playground.com/api/v1/" >> $GITHUB_ENV
 
+      - name: Set API Token for Dev
+        run: echo "API_TOKEN=${{ secrets.API_TOKEN_DEV }}" >> $GITHUB_ENV  # API_TOKEN for Dev
+
       - name: Run tests for Dev
         run: |
           mkdir -p test-results/dev
-          pytest --alluredir=allure-results/dev || true  # Added '|| true' to prevent failing
+          pytest --alluredir=allure-results/dev
+        continue-on-error: true  # Ensures job continues even if tests fail
 
       - name: Upload Playwright traces for Dev
         if: always()
@@ -104,7 +104,6 @@ jobs:
           retention-days: 20
 
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: allure-results-dev
           path: allure-results/dev
@@ -114,23 +113,22 @@ jobs:
     name: Merge Allure Reports
     runs-on: ubuntu-latest
     needs: [test-release, test-dev]
-    if: always()  # Ensures the job runs even if 'test-release' or 'test-dev' fails
     steps:
       - name: Download Allure results for Release
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: allure-results-release
           path: allure-results/release
 
       - name: Download Allure results for Dev
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: allure-results-dev
           path: allure-results/dev
 
       - name: Merge Allure results
         run: |
-          allure generate allure-results/release allure-results/dev -o merged-allure-report || true  # Prevents failure
+          allure generate allure-results/release allure-results/dev -o merged-allure-report
 
       - name: Deploy Allure report to Github Pages
         uses: peaceiris/actions-gh-pages@v2
