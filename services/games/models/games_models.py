@@ -12,9 +12,7 @@ class Game(BaseModel):
         ...,
         description="List of category UUIDs associated with the game.",
     )
-    price: int = Field(
-        ..., description="Price of the game in cents.", example=5999, ge=0
-    )
+    price: int = Field(..., description="Price of the game in cents.", ge=0)
     title: str = Field(
         ...,
         description="Title of the game.",
