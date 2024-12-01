@@ -1,0 +1,4 @@
+{
+    "code": 404,
+    "message": "Could not find user with \"uuid\": a20cec2d-90b7-4b5a-83f2-1d7fc9de2f9d"
+}

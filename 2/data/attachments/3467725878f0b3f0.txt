@@ -1,0 +1,77 @@
+{
+    "meta": {
+        "total": 17
+    },
+    "users": [
+        {
+            "avatar_url": "",
+            "email": "penny07@example.com",
+            "name": "Gerald",
+            "nickname": "ajohnson",
+            "uuid": "3cb61d2c-234b-4cde-87c9-e61c21a7d9cc"
+        },
+        {
+            "avatar_url": "",
+            "email": "alex@gmail.com",
+            "name": "Alex",
+            "nickname": "alex",
+            "uuid": "2ed46da7-2d96-4da2-af16-74dfc34174ca"
+        },
+        {
+            "avatar_url": "",
+            "email": "barneslynn@example.net",
+            "name": "Christopher",
+            "nickname": "cestrada",
+            "uuid": "bdec583b-fe43-4ed7-8abd-266d99e71ec9"
+        },
+        {
+            "avatar_url": "",
+            "email": "xavier96@example.com",
+            "name": "Tracey",
+            "nickname": "daniel99",
+            "uuid": "78746a00-7f15-4ba7-bc81-f6a23f5eb115"
+        },
+        {
+            "avatar_url": "",
+            "email": "lmcguire@example.net",
+            "name": "Travis",
+            "nickname": "donald20",
+            "uuid": "75bc58d9-7d3f-40b7-add7-50852d496e44"
+        },
+        {
+            "avatar_url": "",
+            "email": "montgomeryashley@example.org",
+            "name": "Nicholas",
+            "nickname": "dustin41",
+            "uuid": "737f9406-4540-4307-84c8-9d960b8db5f2"
+        },
+        {
+            "avatar_url": "",
+            "email": "charlestaylor@example.net",
+            "name": "Jessica",
+            "nickname": "jonesbrian",
+            "uuid": "c1eabae2-c6af-457d-8bdd-b51e2f9d0293"
+        },
+        {
+            "avatar_url": "",
+            "email": "kate@gmail.com",
+            "name": "Kate",
+            "nickname": "kate",
+            "uuid": "4a0559af-4951-40a3-a91f-a0f404900bb8"
+        },
+        {
+            "avatar_url": "",
+            "email": "kennethwhitaker@example.net",
+            "name": "Aaron",
+            "nickname": "kyle16",
+            "uuid": "27645e3b-cd86-42a6-a6f9-a8542fc1172c"
+        },
+        {
+            "avatar_url": "",
+            "email": "max@gmail.com",
+            "name": "Max",
+            "nickname": "max",
+            "uuid": "47c11c4a-0b59-4a02-92a5-625b188f71c9"
+        }
+    ]
+}
