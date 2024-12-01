@@ -1,7 +1,8 @@
 import allure
 
 from services.games.games_api_client import GamesAPIClient
-from services.games.models.games_models import GamesResponse
+from services.games.models.games_models import Game, GamesResponse
+from utils.helpers import HelpersGame
 
 
 @allure.epic("Game Management")
@@ -62,3 +63,27 @@ class TestGamesAPI:
                         game.price >= 0
                     ), f"Game price should be non-negative but got {game.price}"
                     assert game.uuid, "Game UUID should not be empty"
+
+    @allure.title("Test getting a specific game by UUID")
+    @allure.description("Verify retrieving game details by its UUID")
+    @allure.severity(allure.severity_level.CRITICAL)
+    def test_get_game(self, game_api_client: GamesAPIClient) -> None:
+        """
+        Test getting a specific game by UUID.
+
+        :param game_api_client: Instance of GamesAPIClient
+        """
+        task_id = "api-9"
+        game_uuid = "03dbad48-ad81-433d-9901-dd5332f5d9ee"
+
+        with allure.step(f"Retrieving game details for UUID {game_uuid}"):
+            game_data = game_api_client.get_game(game_uuid, task_id)
+
+            try:
+                Game.model_validate(game_data)
+            except Exception as e:
+                msg = f"Response validation failed: {e}"
+                raise AssertionError(msg) from e
+
+        HelpersGame.validate_and_attach_game_details(game_data)
+        assert game_data["uuid"] == game_uuid, "UUIDs don't match"
