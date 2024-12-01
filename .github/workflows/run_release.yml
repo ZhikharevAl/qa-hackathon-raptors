@@ -42,14 +42,6 @@
             mkdir -p test-results
             pytest --alluredir=allure-results
 
-        - name: Upload Playwright traces
-          if: always()
-          uses: actions/upload-artifact@v4
-          with:
-            name: playwright-traces
-            path: test-results/
-            retention-days: 20
-
         - uses: actions/upload-artifact@v4
           with:
             name: allure-results
