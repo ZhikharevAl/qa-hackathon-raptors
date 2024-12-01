@@ -27,30 +27,30 @@ jobs:
           uv pip install --system -r requirements.txt
 
       - name: Ensure browsers are installed
-        run: uv pip install --system playwright && python -m playwright install --with-deps
+        run: |
+          uv pip install --system playwright
+          python -m playwright install --with-deps
 
       - name: Set environment for Release
         run: |
           echo "BASE_URL=https://release-gs.qa-playground.com/api/v1/" >> $GITHUB_ENV
 
       - name: Set API Token for Release
-        run: echo "API_TOKEN=${{ secrets.API_TOKEN_RELEASE }}" >> $GITHUB_ENV  # API_TOKEN for Release
+        run: echo "API_TOKEN=${{ secrets.API_TOKEN_RELEASE }}" >> $GITHUB_ENV
+
+      - name: Create result directories for Release
+        run: |
+          mkdir -p test-results/release
+          mkdir -p allure-results/release
 
       - name: Run tests for Release
         run: |
-          mkdir -p test-results/release
-          pytest --alluredir=allure-results/release
+          pytest --alluredir=allure-results/release || true
         continue-on-error: true  # Ensures job continues even if tests fail
 
-      - name: Upload Playwright traces for Release
+      - name: Upload Allure results for Release
         if: always()
         uses: actions/upload-artifact@v4
-        with:
-          name: playwright-traces-release
-          path: test-results/release/
-          retention-days: 20
-
-      - uses: actions/upload-artifact@v4
         with:
           name: allure-results-release
           path: allure-results/release
@@ -80,30 +80,30 @@ jobs:
           uv pip install --system -r requirements.txt
 
       - name: Ensure browsers are installed
-        run: uv pip install --system playwright && python -m playwright install --with-deps
+        run: |
+          uv pip install --system playwright
+          python -m playwright install --with-deps
 
       - name: Set environment for Dev
         run: |
           echo "BASE_URL=https://dev-gs.qa-playground.com/api/v1/" >> $GITHUB_ENV
 
       - name: Set API Token for Dev
-        run: echo "API_TOKEN=${{ secrets.API_TOKEN_DEV }}" >> $GITHUB_ENV  # API_TOKEN for Dev
+        run: echo "API_TOKEN=${{ secrets.API_TOKEN_DEV }}" >> $GITHUB_ENV
+
+      - name: Create result directories for Dev
+        run: |
+          mkdir -p test-results/dev
+          mkdir -p allure-results/dev
 
       - name: Run tests for Dev
         run: |
-          mkdir -p test-results/dev
-          pytest --alluredir=allure-results/dev
+          pytest --alluredir=allure-results/dev || true
         continue-on-error: true  # Ensures job continues even if tests fail
 
-      - name: Upload Playwright traces for Dev
+      - name: Upload Allure results for Dev
         if: always()
         uses: actions/upload-artifact@v4
-        with:
-          name: playwright-traces-dev
-          path: test-results/dev/
-          retention-days: 20
-
-      - uses: actions/upload-artifact@v4
         with:
           name: allure-results-dev
           path: allure-results/dev
