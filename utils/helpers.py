@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING
 
+import allure
 import faker
 from pydantic_core import ValidationError
 
@@ -57,3 +58,24 @@ class UserAPITestHelpers:
         assert (
             second_validated_response.meta.total > 10
         ), "Total users should be more than 10"
+
+
+class HelpersGame:
+    """Helpers for testing Games API functionality."""
+
+    @staticmethod
+    def validate_and_attach_game_details(game_data: dict) -> None:
+        """Validate and attach game details."""
+        with allure.step("Validating game details"):
+            allure.attach(
+                (
+                    f"Game Title: {game_data['title']}\n"
+                    f"Game Price: {game_data['price']}\n"
+                    f"Game UUID: {game_data['uuid']}"
+                ),
+                name="Game Details",
+                attachment_type=allure.attachment_type.TEXT,
+            )
+
+            assert game_data["uuid"], "Game UUID should not be empty"
+            assert game_data["price"] >= 0, "Game price should be non-negative"
