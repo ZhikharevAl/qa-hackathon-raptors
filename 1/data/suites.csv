@@ -1,0 +1,14 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Dec 01 20:45:21 GMT 2024","Sun Dec 01 20:45:21 GMT 2024","0","tests","test_users","TestUsersAPI","","","Test create user","Verify user creation and data validation"
+"passed","Sun Dec 01 20:45:14 GMT 2024","Sun Dec 01 20:45:15 GMT 2024","265","tests","test_users","TestUsersAPI","","","Test get single user details","Verify retrieving details for a specific user"
+"passed","Sun Dec 01 20:45:17 GMT 2024","Sun Dec 01 20:45:18 GMT 2024","649","tests","test_users","TestUsersAPI","","","Test delete user","Verify deleting a single user by UUID"
+"passed","Sun Dec 01 20:45:16 GMT 2024","Sun Dec 01 20:45:16 GMT 2024","305","tests","test_users","TestUsersAPI","","","Test get single user details","Verify retrieving details for a specific user"
+"passed","Sun Dec 01 20:45:13 GMT 2024","Sun Dec 01 20:45:14 GMT 2024","675","tests","test_users","TestUsersAPI","","","Test get users list","Verify retrieving users list with different task IDs"
+"passed","Sun Dec 01 20:45:13 GMT 2024","Sun Dec 01 20:45:13 GMT 2024","741","tests","test_users","TestUsersAPI","","","Test get users list","Verify retrieving users list with different task IDs"
+"passed","Sun Dec 01 20:45:20 GMT 2024","Sun Dec 01 20:45:20 GMT 2024","0","tests","test_users","TestUsersAPI","","","Test create user","Verify user creation and data validation"
+"passed","Sun Dec 01 20:45:10 GMT 2024","Sun Dec 01 20:45:13 GMT 2024","2693","tests","test_games","TestGamesAPI","","","test_get_games","
+        Test getting a list of games for a specific Task ID.
+
+        :param user_api_client: Instance of UserAPIClient
+        "
+"passed","Sun Dec 01 20:45:18 GMT 2024","Sun Dec 01 20:45:19 GMT 2024","647","tests","test_users","TestUsersAPI","","","Test delete user","Verify deleting a single user by UUID"

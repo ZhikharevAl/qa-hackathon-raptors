@@ -1,0 +1,63 @@
+{
+    "meta": {
+        "total": 16
+    },
+    "users": [
+        {
+            "avatar_url": "",
+            "email": "kennethwhitaker@example.net",
+            "name": "Aaron",
+            "nickname": "kyle16",
+            "uuid": "27645e3b-cd86-42a6-a6f9-a8542fc1172c"
+        },
+        {
+            "avatar_url": "",
+            "email": "max@gmail.com",
+            "name": "Max",
+            "nickname": "max",
+            "uuid": "47c11c4a-0b59-4a02-92a5-625b188f71c9"
+        },
+        {
+            "avatar_url": "",
+            "email": "deniseallen@example.net",
+            "name": "Rebecca",
+            "nickname": "rochablake",
+            "uuid": "90773acc-e4b6-4109-91f8-7a4d24a9da53"
+        },
+        {
+            "avatar_url": "",
+            "email": "roman@gmail.com",
+            "name": "Roman",
+            "nickname": "roman",
+            "uuid": "81a9c460-d884-4b32-8310-4ab5d8085d23"
+        },
+        {
+            "avatar_url": "",
+            "email": "sam@gmail.com",
+            "name": "Sam",
+            "nickname": "sam",
+            "uuid": "89b3122e-af4e-48cb-b76a-19da6d13a870"
+        },
+        {
+            "avatar_url": "",
+            "email": "sasha@gmail.com",
+            "name": "Sasha",
+            "nickname": "sasha",
+            "uuid": "651eb8c3-aef6-4cfd-9fcd-7624f2d4d015"
+        },
+        {
+            "avatar_url": "",
+            "email": "sergey@gmail.com",
+            "name": "Sergey",
+            "nickname": "sergey",
+            "uuid": "058aaaa3-b4fb-477c-82d2-f854cace0ec6"
+        },
+        {
+            "avatar_url": "",
+            "email": "smithsandra@example.com",
+            "name": "Debbie",
+            "nickname": "wgoodwin",
+            "uuid": "158bbd5d-990d-4911-84b3-79477838caf2"
+        }
+    ]
+}

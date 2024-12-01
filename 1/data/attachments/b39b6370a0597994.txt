@@ -1,0 +1,14 @@
+{
+    "date": "Sun, 01 Dec 2024 20:45:19 GMT",
+    "content-type": "application/json",
+    "content-length": "97",
+    "access-control-allow-origin": "*",
+    "vary": "Origin",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "d536b37b-0908-4360-b4c8-1e3ba79908b5",
+    "x-serverless-gateway-id": "d5dejttqtidgetmg0g93",
+    "x-serverless-gateway-path": "/api/v1/{proxy+}",
+    "x-yf-remapped-date": "Sun, 01 Dec 2024 20:45:19 GMT",
+    "x-server-trace-id": "a841be038de195e5:11e3cad7fc88361f:a841be038de195e5:1",
+    "server": "Yandex-API-Gateway/1.0"
+}
