@@ -51,3 +51,15 @@ class GamesAPIClient(HTTPClient):
             raise ValueError(msg)
 
         return response.json()
+
+    def get_game(self, game_uuid: str, task_id: str) -> dict[str, Any]:
+        """Getting game details by UUID."""
+        headers = {"X-Task-Id": task_id}
+        endpoint = f"{GAMES_ENDPOINT}/{game_uuid}"
+        response = self.get(endpoint, headers=headers)
+
+        if not response.ok:
+            msg = f"Request failed with status {response.status}"
+            raise ValueError(msg)
+
+        return response.json()
