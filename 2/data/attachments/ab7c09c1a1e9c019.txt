@@ -1,0 +1,7 @@
+{
+    "content-length": "50",
+    "content-type": "text/plain",
+    "date": "Sun, 01 Dec 2024 20:57:23 GMT",
+    "server": "ycalb",
+    "connection": "close"
+}
