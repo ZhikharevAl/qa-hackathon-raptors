@@ -126,6 +126,11 @@ jobs:
           name: allure-results-dev
           path: allure-results/dev
 
+      - name: Install Allure CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y allure
+
       - name: Merge Allure results
         run: |
           allure generate allure-results/release allure-results/dev -o merged-allure-report
