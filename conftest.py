@@ -19,7 +19,7 @@ def api_request_context(
 ) -> Generator[APIRequestContext, None, None]:
     """Context for executing API requests."""
     headers = {
-        "Authorization": f"Bearer {os.getenv('API_TOKEN')}",
+        "Authorization": "Bearer qahack2024:waltafunk@gmail.com",
         "Content-Type": "application/json",
     }
     base_url = os.getenv("BASE_URL", "https://default-url.com/api/v1/")
