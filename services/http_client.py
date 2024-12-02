@@ -86,7 +86,7 @@ class HTTPClient:
     ) -> APIResponse:
         """Sends a PATCH request to the specified endpoint with the provided data."""
         response: APIResponse = self.api_request_context.patch(
-            endpoint, headers=headers, json=json, data=data, timeout=TIMEOUT
+            endpoint, headers=headers, data=json or data, timeout=TIMEOUT
         )
         AllureUtils.attach_response(response)
         return response
