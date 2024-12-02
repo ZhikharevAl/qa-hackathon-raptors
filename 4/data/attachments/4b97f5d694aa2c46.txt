@@ -1,0 +1,4 @@
+{
+    "code": 404,
+    "message": "Could not find game with \"uuid\": 03dbad48-ad81-433d-9901-dd5332f5d9ee"
+}
