@@ -6,3 +6,4 @@ class APIEndpoints:
     PAYMENTS_ENDPOINT = "payments"
     CATEGORIES_ENDPOINT = "categories"
     ORDERS_ENDPOINT = "orders"
+    AVATAR_ENDPOINT = "avatar"
