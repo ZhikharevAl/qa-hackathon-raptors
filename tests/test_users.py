@@ -113,3 +113,45 @@ class TestUsersAPI:
             except ValidationError as e:
                 msg = f"User data validation failed: {e}"
                 raise AssertionError(msg) from e
+
+    @allure.title("Test update user")
+    @allure.description("Verify updating an existing user by UUID")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.parametrize("task_id", ["api-4", "api-24"])
+    def test_update_user(
+        self, user_api_client: UserAPIClient, new_user: dict, task_id: str
+    ) -> None:
+        """
+        Test updating a single user by UUID.
+
+        :param user_api_client: Instance of UserAPIClient
+        :param new_user: Fixture with a newly created user
+        :param task_id: Task ID to be tested
+        """
+        user_uuid = new_user["uuid"]
+
+        with allure.step(f"Updating user with UUID {user_uuid} for Task-Id {task_id}"):
+            updated_user_data = user_api_client.update_user(user_uuid, task_id)
+
+            assert (
+                "uuid" in updated_user_data
+            ), "UUID field should be present in response"
+            assert (
+                updated_user_data["uuid"] == user_uuid
+            ), "UUID should remain unchanged after update"
+
+            assert (
+                updated_user_data["name"] != new_user["name"]
+            ), "Name should be different after update"
+            assert (
+                updated_user_data["email"] != new_user["email"]
+            ), "Email should be different after update"
+            assert (
+                updated_user_data["nickname"] != new_user["nickname"]
+            ), "Nickname should be different after update"
+
+            try:
+                UserResponse.model_validate(updated_user_data)
+            except ValidationError as e:
+                msg = f"Updated user data validation failed: {e}"
+                raise AssertionError(msg) from e

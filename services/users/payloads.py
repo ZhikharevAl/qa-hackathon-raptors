@@ -14,3 +14,14 @@ class Payloads:
         "name": fake.first_name(),
         "nickname": fake.user_name(),
     }
+
+    update_user: ClassVar[dict[str, str]] = {
+        "name": fake.first_name(),
+        "nickname": fake.user_name(),
+        "email": fake.email(),
+        "password": fake.password(length=10),
+    }
+
+    update_user_avatar: ClassVar[dict[str, str]] = {
+        "avatar_url": fake.url(),
+    }
