@@ -87,7 +87,6 @@ Automatically run before each commit:
 
 ### Example Model
 
-
 ```python
 from pydantic import BaseModel, Field
 
@@ -152,6 +151,21 @@ project-root/
 └── .pre-commit-config.yaml  # Pre-commit configuration
 ```
 
+## Coverage Report 📊
+
+```python
+ pytest --cov=tests/
+ ```
+
+| Name                    | Stmts | Miss | Cover |
+|-------------------------|-------|------|-------|
+| tests\__init__.py       | 0     | 0    | 100%  |
+| tests\test_games.py     | 45    | 6    | 87%   |
+| tests\test_users.py     | 80    | 26   | 68%   |
+| tests\test_wishlist.py  | 28    | 3    | 89%   |
+|-------------------------|-------|------|-------|
+| TOTAL                   | 153   | 35   | 77%   |
+
 ## Best Practices 📘
 
 - Use `uv` for dependency management
@@ -162,6 +176,13 @@ project-root/
 - Use fixtures for test setup/teardown
 - Parameterize tests
 - Validate response schemas
+- coverage report
+
+## 📝 TODO
+
+- [ ] Refactor tests to use fixtures
+- [ ] 🎯 Target: 90%+ test coverage
+- [ ] Dynamic test data generation
 
 ## License
 
