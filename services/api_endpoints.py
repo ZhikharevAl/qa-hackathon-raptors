@@ -7,3 +7,5 @@ class APIEndpoints:
     CATEGORIES_ENDPOINT = "categories"
     ORDERS_ENDPOINT = "orders"
     AVATAR_ENDPOINT = "avatar"
+    WISHLIST_ENDPOINT = "wishlist"
+    CART_ENDPOINT = "cart"
