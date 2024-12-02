@@ -9,6 +9,7 @@ from playwright.sync_api import APIRequestContext, Playwright
 
 from services.games.games_api_client import GamesAPIClient
 from services.users.user_api_client import UserAPIClient
+from services.wishlist.api_client_wishlist import WishlistAPIClient
 
 load_dotenv()
 
@@ -44,6 +45,12 @@ def game_api_client(api_request_context: APIRequestContext) -> GamesAPIClient:
     return GamesAPIClient(api_request_context)
 
 
+@pytest.fixture
+def wishlist_api_client(api_request_context: APIRequestContext) -> WishlistAPIClient:
+    """Wishlist API client."""
+    return WishlistAPIClient(api_request_context)
+
+
 @pytest.fixture(params=["api-3", "api-22"])
 def new_user(
     user_api_client: UserAPIClient, request: pytest.FixtureRequest
@@ -55,7 +62,7 @@ def new_user(
     :param request: Fixture request object, used for parametrization
     """
     task_id = request.param
-    user = user_api_client.create_user(task_id)
+    user: dict[str, Any] = user_api_client.create_user(task_id)
 
     yield user
 
