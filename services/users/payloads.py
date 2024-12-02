@@ -21,3 +21,7 @@ class Payloads:
         "email": fake.email(),
         "password": fake.password(length=10),
     }
+
+    update_user_avatar: ClassVar[dict[str, str]] = {
+        "avatar_url": fake.url(),
+    }
