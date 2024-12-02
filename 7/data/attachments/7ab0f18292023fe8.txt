@@ -1,0 +1,1 @@
+https://dev-gs.qa-playground.com/api/v1/users?offset=7&limit=10
