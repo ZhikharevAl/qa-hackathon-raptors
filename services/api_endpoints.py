@@ -5,3 +5,4 @@ class APIEndpoints:
     GAMES_ENDPOINT = "games"
     PAYMENTS_ENDPOINT = "payments"
     CATEGORIES_ENDPOINT = "categories"
+    ORDERS_ENDPOINT = "orders"
