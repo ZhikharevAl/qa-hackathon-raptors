@@ -1,0 +1,7 @@
+{
+    "avatar_url": "",
+    "email": "martineznicholas@example.org",
+    "name": "Max",
+    "nickname": "katrinaterry",
+    "uuid": "3feff0f0-705a-471f-99bd-f6279a686ac5"
+}
