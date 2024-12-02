@@ -1,0 +1,3 @@
+Game Title: Elden Ring
+Game Price: 5999
+Game UUID: 03dbad48-ad81-433d-9901-dd5332f5d9ee

@@ -1,0 +1,1 @@
+https://release-gs.qa-playground.com/api/v1/games/search/?query=Elden%20Ring&offset=0&limit=10
