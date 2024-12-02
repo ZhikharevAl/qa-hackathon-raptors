@@ -7,6 +7,7 @@ from services.http_client import HTTPClient
 from services.users.payloads import Payloads
 
 USERS_ENDPOINT = APIEndpoints.USERS_ENDPOINT
+AVATAR_ENDPOINT = APIEndpoints.AVATAR_ENDPOINT
 
 
 class UserAPIClient(HTTPClient):
@@ -101,6 +102,27 @@ class UserAPIClient(HTTPClient):
             f"{USERS_ENDPOINT}/{user_uuid}",
             headers=headers,
             json=self.payloads.update_user,
+        )
+
+        if not response.ok:
+            msg = f"Request failed with status {response.status}"
+            raise ValueError(msg)
+
+        return response.json()
+
+    def update_user_avatar(self, user_uuid: str, task_id: str) -> dict[str, Any]:
+        """
+        Updating an existing user by UUID.
+
+        :param user_uuid: The UUID of the user to update
+        :param task_id: Task ID
+        :return: Full API Response
+        """
+        headers = {"X-Task-Id": task_id}
+        response = self.put(
+            f"{USERS_ENDPOINT}/{user_uuid}/{AVATAR_ENDPOINT}",
+            headers=headers,
+            json=self.payloads.update_user_avatar,
         )
 
         if not response.ok:
