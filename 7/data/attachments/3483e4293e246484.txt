@@ -1,0 +1,13 @@
+{
+    "date": "Mon, 02 Dec 2024 04:57:33 GMT",
+    "access-control-allow-origin": "*",
+    "vary": "Origin",
+    "x-content-type-options": "nosniff",
+    "x-request-id": "a303f3ef-a8b8-4ddd-ae2d-83295bb6e3f9",
+    "x-serverless-gateway-id": "d5dejttqtidgetmg0g93",
+    "x-serverless-gateway-path": "/api/v1/{proxy+}",
+    "x-yf-remapped-date": "Mon, 02 Dec 2024 04:57:33 GMT",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-server-trace-id": "44c127ecf0e8c9bf:fc6ddb4375d23e2f:44c127ecf0e8c9bf:1",
+    "server": "Yandex-API-Gateway/1.0"
+}

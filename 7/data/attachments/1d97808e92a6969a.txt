@@ -1,0 +1,1 @@
+https://release-gs.qa-playground.com/api/v1/users/016b7dae-9f11-4ccc-9763-d72092797052/wishlist/add
